@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src = "https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.min.js">
+</script>
+</head>
+<body>
+    <script>
+let circleD;
+let rectS;
+let myImage;
+
+function preload (){
+    myImage = loadImage ("winter.jpg")
+}
+
+function setup() {
+  createCanvas(400, 400);
+  background(myImage);
+  circleD = 0;
+  rectS = 0;
+  text ("Click your mouse or use the 'enter' key anywhere on the tree to decorate it", 0, 50 )
+  text ("HAPPY HOLIDAYS", 145,25)
+  // Tree Triangles
+ fill(0, 100, 0);
+  noStroke();
+  triangle(50, 340, 350, 340, 200, 190);  
+  triangle(80, 280, 320, 280, 200, 140); 
+  triangle(110, 220, 290, 220, 200, 90);  
+  
+  // Tree trunk
+  fill(101, 67, 33);
+  rect(175, 340, 50, 60);
+}
+
+
+function mousePressed(){
+  if (mouseX > 75 && mouseX < 325 && mouseY > 75 && mouseY < 350) {
+  let r = round(random(255));
+  let g = round(random(255));
+  let b = round(random(255));
+  fill(r, g, b);
+  circleD = round(random(10,35))
+  circle (mouseX, mouseY, circleD);
+}
+}
+function keyPressed (){
+  if (keyCode == ENTER && mouseX > 75 && mouseX < 325 && mouseY > 75 && mouseY < 350) {
+  let r = round(random(255));
+  let g = round(random(255));
+  let b = round(random(255));
+    fill(r, g, b);
+    rectS = round(random(10,35))
+    rect (mouseX, mouseY, rectS);
+
+}
+
+}
+
+
+
+
+    </script>
+
+
+</body>
+</html>
